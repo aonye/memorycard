@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.js": "/memorycard/static/js/main.28274247.chunk.js",
+    "main.js.map": "/memorycard/static/js/main.28274247.chunk.js.map",
+    "runtime-main.js": "/memorycard/static/js/runtime-main.b1029d95.js",
+    "runtime-main.js.map": "/memorycard/static/js/runtime-main.b1029d95.js.map",
+    "static/js/2.97689842.chunk.js": "/memorycard/static/js/2.97689842.chunk.js",
+    "static/js/2.97689842.chunk.js.map": "/memorycard/static/js/2.97689842.chunk.js.map",
+    "index.html": "/memorycard/index.html",
+    "static/js/2.97689842.chunk.js.LICENSE.txt": "/memorycard/static/js/2.97689842.chunk.js.LICENSE.txt",
+    "static/media/chaeyoung.jpg": "/memorycard/static/media/chaeyoung.33392cc7.jpg",
+    "static/media/dahyun.jpg": "/memorycard/static/media/dahyun.fbf463a5.jpg",
+    "static/media/jeongyeon.jpg": "/memorycard/static/media/jeongyeon.8d042472.jpg",
+    "static/media/jihyo.jpg": "/memorycard/static/media/jihyo.bbf9fd43.jpg",
+    "static/media/mina.jpg": "/memorycard/static/media/mina.86b5e06b.jpg",
+    "static/media/momo.jpg": "/memorycard/static/media/momo.eba7fdf1.jpg",
+    "static/media/nayeon.jpg": "/memorycard/static/media/nayeon.da7ecb37.jpg",
+    "static/media/sana.jpg": "/memorycard/static/media/sana.aaed71aa.jpg",
+    "static/media/tzuyu.jpg": "/memorycard/static/media/tzuyu.efb6788f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b1029d95.js",
+    "static/js/2.97689842.chunk.js",
+    "static/js/main.28274247.chunk.js"
+  ]
+}
