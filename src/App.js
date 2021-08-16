@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import PictureCard from './components/picturecard';
+import Images from './pictures/index';
 
-function App() {
+const App = () => {
+  const [pictures, setPictures] = useState(Images);
+  console.log(pictures);
+
+  const getScrambleArr = (len) => {
+    let arr = [];
+    while (arr.length !== len) {
+      const num = Math.floor(Math.random() * len);
+      if (!arr.includes(num)) {
+        arr.push(num);
+      }
+    }
+    return arr;
+  }
+
+  const createUI = () => {
+    return pictures.map((item, index) => {
+      return <PictureCard key={index} item={item} index={index} />;
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {createUI()}
     </div>
   );
 }
+
+<img src={require('./pictures/tzuyu.jpg').default} alt='' />
+
 
 export default App;
