@@ -47,6 +47,9 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    document.title = "Twice Memory Game!"
+  }, []);
 
   useEffect(() => {
     setPictures((prevState) => {
