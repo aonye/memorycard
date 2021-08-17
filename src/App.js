@@ -1,39 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import PictureCard from './components/picturecard';
 import Images from './pictures/index';
+import './styles/styles.css';
 
 const App = () => {
   const [pictures, setPictures] = useState(Images);
-
-  const getScrambleArr = (len) => {
-    let arr = [];
-    while (arr.length !== len) {
-      const num = Math.floor(Math.random() * len);
-      if (!arr.includes(num)) {
-        arr.push(num);
-      }
-    }
-    return arr;
-  };
+  const [scoreBoard, setScoreBoard] = useState({
+    currentScore: 0,
+    clicked: [],
+    maxScore: 0,
+  });
 
   const handleClick = (e) => {
-    let tempArr = [...pictures];
-    shuffleArray(tempArr);
-    setPictures(tempArr);
-
-    function shuffleArray(array) {
-      for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-      }
+    let id;
+    !(e.target.id) ? id = e.target.parentNode.id : id = e.target.id;
+    let arr = [...scoreBoard.clicked];
+    let max = scoreBoard.maxScore;
+    if (arr.includes(id)) { //checkloss
+      alert('You clicked a repeat element, you lose.');
+      setScoreBoard({
+        currentScore: 0,
+        clicked: [],
+        maxScore: max,
+      });
+      return;
+    }
+    arr.push(id);
+    let score = scoreBoard.currentScore;
+    score++;
+    (score < max) || (max = score);
+    setScoreBoard({
+      currentScore: score,
+      clicked: arr,
+      maxScore: max,
+    });
+    if (arr.length === 9) { //check win
+      alert('You win! Congratualations');
+      setTimeout(() => {
+        setScoreBoard({
+          currentScore: 0,
+          clicked: [],
+          maxScore: score,
+        });;
+      }, 1000);
+      return;
     }
   };
 
-  useEffect((e) => {
-    console.log('in here', e);
-  }, [pictures])
+
+  useEffect(() => {
+    setPictures((prevState) => {
+      return shuffleArray(prevState);;
+    });
+
+    const shuffleArray = (array) => { //this mutates the array
+      const arr = [...array];
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+      return arr;
+    };
+    /* eslint-disable react-hooks/exhaustive-deps */
+  }, [scoreBoard]);
 
   const createUI = () => {
     return pictures.map((item, index) => {
@@ -47,12 +78,19 @@ const App = () => {
 
   return (
     <div>
-      {createUI()}
-    </div>
+      <header style={{ clear: 'both' }}>
+        <div id='title' style={{ float: 'left' }}>TWICE Memory Game!</div>
+        <div style={{ float: 'right' }}>
+          <div>Score: {scoreBoard.currentScore}</div>
+          <div style={{ float: 'right' }} >Max Score: {scoreBoard.maxScore}</div>
+        </div>
+      </header>
+      <br></br>
+      <div className='container'>
+        {createUI()}
+      </div>
+    </div >
   );
 };
-
-<img src={require('./pictures/tzuyu.jpg').default} alt='' />
-
 
 export default App;

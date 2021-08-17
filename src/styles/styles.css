@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Peacechild';
+    src:
+        local('Peacechild'),
+        url('peacechild-beta.ttf');
+}
+
+body {
+    background-image: linear-gradient( rgb(255,130,130), rgb(253,188,180));
+    font-family: Peacechild;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    font-size: 50px;
+    font-family: Peacechild, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    outline: black;
+    height: 20vh;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+    height: 900px;
+    width: 900px;
+}
+
+#title {
+    font-weight: 800;
+    text-indent: 1em;
+    margin-top: 3vh;
+}
+
+img {
+    border-radius: 20px;
+}
+
+label {
+    display: block !important;
+    text-align: center;
+    font-size: 25px;
+    color:rgb(90,90,90);
+    background-color: lavender;
+    border-radius: 5px;
+}
