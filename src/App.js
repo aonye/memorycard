@@ -17,7 +17,7 @@ const App = () => {
     let arr = [...scoreBoard.clicked];
     let max = scoreBoard.maxScore;
     if (arr.includes(id)) { //checkloss
-      alert('You clicked a repeat element, you lose.');
+      alert('You clicked a girl TWICE (haha lame pun, sorry), you lose.');
       setScoreBoard({
         currentScore: 0,
         clicked: [],
@@ -79,7 +79,10 @@ const App = () => {
   return (
     <div>
       <header style={{ clear: 'both' }}>
-        <div id='title' style={{ float: 'left' }}>TWICE Memory Game!</div>
+        <div style={{ float: 'left' }}>
+          <div id='title'>TWICE Memory Game!</div>
+          <div id='instruct'>Can you identify all the TWICE girls? Click an image to earn points, but don't click on any more than once!</div>
+        </div>
         <div style={{ float: 'right' }}>
           <div>Score: {scoreBoard.currentScore}</div>
           <div style={{ float: 'right' }} >Max Score: {scoreBoard.maxScore}</div>
